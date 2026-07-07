@@ -1,0 +1,759 @@
+This is a strong foundation for a modern postal field operations platform. The key is to avoid trying to build everything at once. Give Replit instructions to first build a production-ready architecture, then add features in modules.
+
+Here is a single master prompt you can paste into Replit AI.
+
+MASTER PROMPT
+
+Build a production-ready Progressive Web App (PWA) for Indian Postal Department field operations.
+
+Vision
+
+Create a lightweight, offline-first, mobile-first application capable of supporting thousands of post offices and tens of thousands of field operators.
+
+The architecture must be modular so new features can be added without changing existing code.
+
+The application should be designed for low-end Android phones and poor network conditions.
+
+⸻
+
+Primary Design Goals
+
+• Mobile First
+
+• Progressive Web App
+
+• Offline First
+
+• Fast (<1 second navigation)
+
+• Secure
+
+• Modular
+
+• Scalable
+
+• Low memory usage
+
+• Battery efficient
+
+• Government infrastructure friendly
+
+• Simple UI
+
+• Works on low bandwidth
+
+⸻
+
+Technology
+
+Frontend
+
+React
+
+TypeScript
+
+Vite
+
+PWA
+
+Service Worker
+
+IndexedDB
+
+Leaflet Maps
+
+OpenStreetMap
+
+Workbox
+
+React Router
+
+TanStack Query
+
+Zustand
+
+Tailwind CSS
+
+Barcode Scanner
+
+Camera API
+
+Geolocation API
+
+Background Sync
+
+Backend
+
+Node.js
+
+Fastify
+
+PostgreSQL
+
+PostGIS
+
+Redis
+
+Prisma
+
+JWT Authentication
+
+Role Based Access
+
+API First
+
+Deployment
+
+Docker
+
+GitHub
+
+CI/CD
+
+⸻
+
+Architecture
+
+Use Clean Architecture.
+
+Feature Based Folder Structure.
+
+Every feature independent.
+
+No feature should break another.
+
+Every module should communicate through APIs.
+
+Offline queue for every write operation.
+
+Conflict resolution after sync.
+
+⸻
+
+User Roles
+
+1. Super Admin
+
+Only one hidden super administrator.
+
+Username:
+
+Akash@Mishra
+
+Password:
+
+9861917476
+
+These credentials must never appear in UI or source code.
+
+Store securely using environment variables.
+
+Responsibilities
+
+Create Offices
+
+Edit Offices
+
+Deactivate Offices
+
+Create Admin Users
+
+Assign one or more offices to Admins
+
+Nothing else.
+
+After setup Super Admin rarely logs in.
+
+⸻
+
+2. Office Admin
+
+After login show office selection.
+
+If multiple offices assigned
+
+Select office.
+
+Then dashboard opens.
+
+Dashboard should show
+
+Office Status
+
+Daily Tasks
+
+Monthly Tasks
+
+Annual Tasks
+
+Daily tasks always on top.
+
+Office Admin Features
+
+Create Field Operator IDs
+
+Assign Beats
+
+Draw Office Polygon
+
+Edit Office Polygon
+
+Create Beat Polygons
+
+Assign Beat Polygon
+
+Issue Postal Articles
+
+Issue COD
+
+Issue EMO
+
+Issue Sale Items
+
+Issue Instructions
+
+Set Deadlines
+
+View Live Field Location
+
+View Reports
+
+View Maps
+
+Business Dashboard
+
+Reports Dashboard
+
+Article Dashboard
+
+Field Operations Dashboard
+
+⸻
+
+3. Field Operator
+
+Designed for GDS/Postman.
+
+After Login
+
+Today’s Pending Visits
+
+Today’s Articles
+
+Today’s Targets
+
+Beat Map
+
+Reports
+
+Settings
+
+⸻
+
+Office Area
+
+Admin draws Office Boundary using polygon.
+
+Save permanently.
+
+Offline available.
+
+⸻
+
+Beat Area
+
+Admin divides office into Beat Polygons.
+
+Assign Beat to Field Operator.
+
+Beat downloaded offline.
+
+Always available.
+
+⸻
+
+Beat Map
+
+Map opens centered on
+
+Current GPS
+
+Beat Polygon
+
+Office Polygon
+
+Downloaded Offline.
+
+⸻
+
+Map Provider
+
+OpenStreetMap
+
+Leaflet
+
+Offline Tile Cache
+
+⸻
+
+Address Database
+
+Each address stored with
+
+Unique ID
+
+GPS
+
+House Polygon (optional)
+
+Residential
+
+Business
+
+Government
+
+School
+
+Hospital
+
+Commercial
+
+Social
+
+Landmark
+
+Accessibility Hours
+
+Contact Person
+
+Contact Number
+
+Notes
+
+Photo optional
+
+Created By
+
+Created Date
+
+Updated Date
+
+Searchable Offline
+
+When searched
+
+Show Navigation
+
+Current Location
+
+↓
+
+Saved House
+
+⸻
+
+Visit System
+
+Create Visit
+
+GPS Auto Capture
+
+Timestamp
+
+Visit Type
+
+Delivery
+
+Enquiry
+
+Lead
+
+Complaint
+
+Pickup
+
+Business Proposal
+
+Beat Update
+
+Office Work
+
+Verification
+
+Money Collection
+
+Other
+
+Notes
+
+Photo Optional
+
+Contact Number Optional
+
+Saved Offline
+
+Sync Later
+
+⸻
+
+Postal Articles
+
+Scan Barcode
+
+Automatically fetch article
+
+Save
+
+Barcode
+
+Article Number
+
+Addressee
+
+Address
+
+Phone
+
+Delivery Status
+
+Delivered
+
+Attempted
+
+Returned
+
+Reason
+
+GPS
+
+Time
+
+Signature when required
+
+Photo when required
+
+Offline Queue
+
+⸻
+
+Money Handling
+
+Separate secure module.
+
+COD
+
+EMO
+
+Sales
+
+Cash Collection
+
+Stamp Sales
+
+Inventory
+
+Receipt
+
+Audit Trail
+
+⸻
+
+Business Module
+
+Lead Generation
+
+Pickup Requests
+
+Complaints
+
+Enquiries
+
+Business Proposals
+
+Future Customers
+
+Status Tracking
+
+⸻
+
+Reports
+
+Automatic Daily Report
+
+Visits
+
+Articles
+
+Distance
+
+GPS Route
+
+COD
+
+Sales
+
+Business
+
+Complaints
+
+Beat Updates
+
+Summary
+
+Generate map image
+
+Plot all visit points
+
+Connect route
+
+Upload automatically.
+
+⸻
+
+Admin Reports
+
+Office Summary
+
+Daily
+
+Weekly
+
+Monthly
+
+Annual
+
+Field Operator Productivity
+
+Business
+
+Revenue
+
+Deliveries
+
+Heat Maps
+
+Charts
+
+Download PDF
+
+Download Excel
+
+⸻
+
+Live Tracking
+
+Admin may view
+
+Current GPS
+
+Last Sync
+
+Battery Level
+
+Offline Status
+
+Today’s Route
+
+⸻
+
+Data Storage
+
+Separate data into
+
+Permanent
+
+Addresses
+
+Maps
+
+Beat
+
+Office
+
+Temporary
+
+Daily Visits
+
+GPS Cache
+
+Offline Queue
+
+Logs
+
+Automatically delete temporary cache after successful sync.
+
+Permanent data retained.
+
+⸻
+
+Performance
+
+Maximum APK/PWA size minimal.
+
+Lazy Loading.
+
+Code Splitting.
+
+Background Sync.
+
+Incremental Sync.
+
+IndexedDB.
+
+Image Compression.
+
+Minimal RAM.
+
+Minimal CPU.
+
+Works on 2 GB devices.
+
+⸻
+
+Security
+
+JWT
+
+Refresh Tokens
+
+HTTPS
+
+Encrypted Storage
+
+Role Based Access
+
+Audit Logs
+
+No hardcoded secrets
+
+Input Validation
+
+Rate Limiting
+
+Secure APIs
+
+⸻
+
+Offline Features
+
+Everything should work offline except authentication.
+
+Maps cached.
+
+Addresses cached.
+
+Articles cached.
+
+Queue all operations.
+
+Automatic sync.
+
+Conflict handling.
+
+⸻
+
+Dashboard
+
+Field Operator
+
+Today’s Deliveries
+
+Today’s Visits
+
+Today’s Leads
+
+Today’s Sales
+
+Today’s COD
+
+Today’s EMO
+
+Pending Articles
+
+Pending Sync
+
+⸻
+
+UI
+
+Google Material Design 3
+
+Simple
+
+Large buttons
+
+One-hand operation
+
+Minimal typing
+
+Scanner first workflow
+
+Map first workflow
+
+Accessibility friendly
+
+Dark Mode
+
+⸻
+
+Future Modules
+
+eKYC
+
+AI Route Optimization
+
+Voice Input
+
+Speech to Text
+
+Drone Integration
+
+IoT Sensors
+
+Digital Identity
+
+UPI Payments
+
+Analytics
+
+Machine Learning
+
+Citizen Portal
+
+API Integrations
+
+These modules should be pluggable without changing existing code.
+
+⸻
+
+Final Requirement
+
+Do not generate a demo.
+
+Generate production-grade folder structure.
+
+Generate scalable architecture.
+
+Generate secure APIs.
+
+Generate database schema.
+
+Generate UI.
+
+Generate offline engine.
+
+Generate sync engine.
+
+Generate reusable components.
+
+Generate documentation.
+
+Everything must be modular, production-ready, maintainable, and suitable for long-term deployment across thousands of Indian post offices.
+
+A couple of changes I’d recommend before building:
+
+* Don’t hardcode the super admin username and password into the application or repository. Instead, store them as environment variables or create the first super admin during deployment. This is much more secure.
+* Rather than live location tracking at all times, consider periodic updates (for example, every few minutes while on duty or on important events). That reduces battery use, mobile data, and privacy concerns.
+* Design the backend as a multi-tenant system so each post office’s data is logically isolated while still using one deployment. This will make scaling to thousands of offices much easier.
+
+This prompt is comprehensive enough for Replit AI to scaffold the initial production architecture rather than just generating a simple prototype.
