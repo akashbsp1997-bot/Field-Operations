@@ -3,7 +3,7 @@ name: Push Database Schema to Neon
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Allows you to trigger this manually
+  workflow_dispatch: 
 
 jobs:
   deploy-db:
@@ -23,14 +23,9 @@ jobs:
           version: 9
 
       - name: Install dependencies
-        run: |
-          cd Field-Operations
-          pnpm install
+        run: pnpm install
 
       - name: Sync schema to Neon
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: |
-          cd Field-Operations
-          pnpm --filter @workspace/db exec drizzle-kit push
-Add DB deployment workflow
+        run: pnpm --filter @workspace/db exec drizzle-kit push
